@@ -3,20 +3,23 @@ import { DropdownMenuItem as ShadcnDropdownMenuItem } from "@shared/shadcn/dropd
 import { IconWrapperProps } from "@shared/hocs";
 
 interface DropdownMenuItemProps {
-  id: string | number;
+  value: string;
   Icon?: FC<IconWrapperProps>;
-  label: string;
-  onItemClick: (item: string | number) => void;
+  label?: string;
+  onItemClick: (item: string) => void;
 }
 
 const DropdownMenuItem: FC<DropdownMenuItemProps> = ({
-  id,
+  value,
   Icon,
   label,
   onItemClick,
 }) => {
   return (
-    <ShadcnDropdownMenuItem onClick={() => onItemClick(id)} className="gap-2">
+    <ShadcnDropdownMenuItem
+      onClick={() => onItemClick(value)}
+      className="gap-2"
+    >
       {Icon && <Icon size={16} />}
       <span>{label}</span>
     </ShadcnDropdownMenuItem>

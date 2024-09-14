@@ -6,21 +6,21 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
 } from "@shared/shadcn/dropdown-menu";
-import { DropdownMenuItem as MenuItem } from "./types";
+import { Option } from "@shared/types/option";
 import DropdownMenuItem from "./DropdownMenuItem";
 
 interface DropdownMenuProps {
   trigger: ReactNode;
-  items: MenuItem[];
+  options: Option[];
   label?: string;
   defaultIsOpen?: boolean;
   className?: string;
-  onItemClick: (id: string | number) => void;
+  onItemClick: (value: string) => void;
 }
 
 const DropdownMenu: FC<DropdownMenuProps> = ({
   trigger,
-  items,
+  options,
   label,
   defaultIsOpen = false,
   onItemClick,
@@ -37,7 +37,7 @@ const DropdownMenu: FC<DropdownMenuProps> = ({
             <DropdownMenuSeparator />
           </>
         )}
-        {items.map((item, index) => (
+        {options?.map((item, index) => (
           <DropdownMenuItem key={index} {...item} onItemClick={onItemClick} />
         ))}
       </DropdownMenuContent>

@@ -20,8 +20,8 @@ const Navigation: FC<NavigationProps> = ({ className }) => {
           <li
             key={index}
             className={cn(
-              "p-4 spin-in-1 text-lg hover:bg-sky-50 rounded-t-lg whitespace-nowrap",
-              pathname === path && "bg-sky-100",
+              "p-4 spin-in-1 text-lg hover:bg-accent-50 rounded-t-lg whitespace-nowrap",
+              pathname === path && "bg-accent-100",
             )}
           >
             <Link href={path}>{label}</Link>

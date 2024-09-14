@@ -22,7 +22,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         asChild={asChild}
         className={cn(
           withSign &&
-            "relative after:absolute after:content-[''] after:top-0 after:right-0 after:w-2 after:h-2 after:rounded-full after:bg-sky-500",
+            "relative after:absolute after:content-[''] after:top-0 after:right-0 after:w-2 after:h-2 after:rounded-full after:bg-red-500",
           className,
         )}
         ref={ref}

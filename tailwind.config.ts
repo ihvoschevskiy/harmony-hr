@@ -20,7 +20,7 @@ const config: Config = {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {
-          DEFAULT: "hsl(var(--card))",
+          DEFAULT: "var(--card)",
           foreground: "hsl(var(--card-foreground))",
         },
         popover: {
@@ -42,6 +42,9 @@ const config: Config = {
         accent: {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
+          50: "#F0F3F8",
+          100: "#DAE6F2",
+          500: "#1C3144",
         },
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
