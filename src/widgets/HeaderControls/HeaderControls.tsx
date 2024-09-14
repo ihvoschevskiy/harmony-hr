@@ -49,10 +49,10 @@ const HeaderControls: FC<HeaderControlsProps> = ({
             alt="user avatar"
             width={38}
             height={38}
+            className="flex-shrink-0"
           />
         }
         onItemClick={onItemClickHandler}
-        className="bg-red-900"
       />
     </div>
   );

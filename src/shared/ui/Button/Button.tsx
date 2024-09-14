@@ -1,39 +1,9 @@
-import { ButtonHTMLAttributes, forwardRef, useMemo } from "react";
-import { Slot } from "@radix-ui/react-slot";
-import { cva, type VariantProps } from "class-variance-authority";
+import { ButtonHTMLAttributes, forwardRef } from "react";
+import { type VariantProps } from "class-variance-authority";
+import { buttonVariants, Button as ShadcnButton } from "@shared/shadcn/button";
+import { cn } from "@shared/utils";
 
-import { cn } from "@shared/utils/";
-
-const buttonVariants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
-  {
-    variants: {
-      variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90",
-        destructive:
-          "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        outline:
-          "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
-        secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
-      },
-      size: {
-        default: "h-10 px-4 py-2",
-        sm: "h-9 rounded-md px-3",
-        lg: "h-11 rounded-md px-8",
-        icon: "h-10 w-10",
-      },
-    },
-    defaultVariants: {
-      variant: "default",
-      size: "default",
-    },
-  },
-);
-
-export interface ButtonProps
+interface ButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
   asChild?: boolean;
@@ -45,31 +15,23 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     { className, variant, size, asChild = false, withSign = false, ...props },
     ref,
   ) => {
-    const Component = useMemo(() => {
-      const Button = asChild ? Slot : "button";
-
-      return (
-        <Button
-          className={cn(buttonVariants({ variant, size, className }))}
-          ref={ref}
-          {...props}
-        />
-      );
-    }, [asChild, className, props, ref, size, variant]);
-
     return (
-      <>
-        {!withSign && Component}
-        {withSign && (
-          <div className="relative">
-            {Component}
-            <div className="absolute right-0 top-0 bg-sky-500 rounded-full w-2 h-2"></div>
-          </div>
+      <ShadcnButton
+        variant={variant}
+        size={size}
+        asChild={asChild}
+        className={cn(
+          withSign &&
+            "relative after:absolute after:content-[''] after:top-0 after:right-0 after:w-2 after:h-2 after:rounded-full after:bg-sky-500",
+          className,
         )}
-      </>
+        ref={ref}
+        {...props}
+      />
     );
   },
 );
+
 Button.displayName = "Button";
 
 export default Button;
