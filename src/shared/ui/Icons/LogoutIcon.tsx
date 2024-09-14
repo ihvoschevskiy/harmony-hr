@@ -1,8 +1,13 @@
-import { withIcon } from "@shared/hocs";
+import { IconWrapperProps, withIcon } from "@shared/hocs";
 import { FC } from "react";
 
-const Icon: FC = () => (
-  <svg viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+const Icon: FC<IconWrapperProps> = (props) => (
+  <svg
+    viewBox="0 0 16 18"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
     <path
       fillRule="evenodd"
       clipRule="evenodd"

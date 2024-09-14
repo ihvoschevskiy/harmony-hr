@@ -1,5 +1,5 @@
 import { DropdownMenuItem } from "@shared/ui/DropdownMenu/types";
-import LogoutIcon from "@shared/ui/Icons/LogoutIcon";
+import { LogoutIcon } from "@shared/ui/Icons";
 
 export const userMenu: DropdownMenuItem[] = [
   {
