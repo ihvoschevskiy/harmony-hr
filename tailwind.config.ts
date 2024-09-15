@@ -17,7 +17,10 @@ const config: Config = {
     },
     extend: {
       colors: {
-        background: "hsl(var(--background))",
+        background: {
+          DEFAULT: "hsl(var(--background))",
+          50: "#FCFCFE",
+        },
         foreground: "hsl(var(--foreground))",
         card: {
           DEFAULT: "var(--card)",
@@ -44,6 +47,7 @@ const config: Config = {
           foreground: "hsl(var(--accent-foreground))",
           50: "#F0F3F8",
           100: "#DAE6F2",
+          300: "#7C96B1",
           500: "#1C3144",
         },
         destructive: {

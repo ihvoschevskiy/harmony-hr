@@ -8,18 +8,26 @@ import {
   Select as ShadcnSelect,
 } from "@shared/shadcn/select";
 import { SelectOption } from "./types";
+import { cn } from "@shared/utils";
 
 interface SelectProps {
   value: string;
   options: SelectOption[];
   placeholder?: string;
   onChange: (value: string) => void;
+  className?: string;
 }
 
-const Select: FC<SelectProps> = ({ value, options, placeholder, onChange }) => {
+const Select: FC<SelectProps> = ({
+  value,
+  options,
+  placeholder,
+  className,
+  onChange,
+}) => {
   return (
     <ShadcnSelect value={value} onValueChange={onChange}>
-      <SelectTrigger className="w-fit gap-2 p-2">
+      <SelectTrigger className={cn("w-fit gap-2 p-2", className)}>
         <SelectValue placeholder={placeholder} />
       </SelectTrigger>
       <SelectContent>

@@ -1,7 +1,10 @@
-import { FC } from "react";
+"use client";
+
+import { FC  } from "react";
+
 
 const LoginPage: FC = () => {
-  return "Login Page";
+  return "LoginPage";
 };
 
 export default LoginPage;
