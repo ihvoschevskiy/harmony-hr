@@ -27,7 +27,7 @@ const Select: FC<SelectProps> = ({
 }) => {
   return (
     <ShadcnSelect value={value} onValueChange={onChange}>
-      <SelectTrigger className={cn("w-fit gap-2 p-2", className)}>
+      <SelectTrigger className={cn("w-max gap-2 p-2", className)}>
         <SelectValue placeholder={placeholder} />
       </SelectTrigger>
       <SelectContent>

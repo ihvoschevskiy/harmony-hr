@@ -14,7 +14,7 @@ const Navigation: FC<NavigationProps> = ({ className }) => {
   const pathname = usePathname();
 
   return (
-    <div className={cn("ml-16 self-end", className)}>
+    <div className={cn("self-end", className)}>
       <ul className="flex">
         {navigationRoutes.map(({ label, path }, index) => (
           <li

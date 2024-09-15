@@ -24,14 +24,14 @@ const Card: FC<CardProps> = ({
   className,
 }) => {
   return (
-    <ShadcnCard className={className}>
+    <ShadcnCard className={cn("border-none p-6", className)}>
       {header && (
-        <CardHeader className="pb-4">
+        <CardHeader className="p-0">
           {header}
           {description && <CardDescription>{description}</CardDescription>}
         </CardHeader>
       )}
-      <CardContent className={cn(!header && "pt-6")}>{conetent}</CardContent>
+      <CardContent className={cn("p-0", header && "pt-4")}>{conetent}</CardContent>
       {footer && <CardFooter>{footer}</CardFooter>}
     </ShadcnCard>
   );

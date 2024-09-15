@@ -10,10 +10,12 @@ const config: Config = {
   ],
   theme: {
     screens: {
+      s: "360px",
       sm: "480px",
       md: "768px",
-      lg: "976px",
-      xl: "1440px",
+      lg: "1024px",
+      xl: "1280px",
+      xxl: "1440px",
     },
     extend: {
       colors: {
@@ -48,6 +50,8 @@ const config: Config = {
           50: "#F0F3F8",
           100: "#DAE6F2",
           300: "#7C96B1",
+          400: "#3758AB",
+          450: "#204973",
           500: "#1C3144",
         },
         destructive: {

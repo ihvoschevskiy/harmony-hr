@@ -6,6 +6,7 @@ import {
   getHireCardDetails,
   getReportsCardDetails,
 } from "./helpers";
+import { cn } from "@shared/utils";
 
 //TODO: Заменить на данные с бэкенда
 const data = {
@@ -34,9 +35,18 @@ const data2 = [
   "Robert",
 ];
 
-const PersonalInfo: FC = () => {
+interface PersonalInfoProps {
+  className?: string;
+}
+
+const PersonalInfo: FC<PersonalInfoProps> = ({ className }) => {
   return (
-    <div className="flex flex-col items-center min-w-80 bg-accent-50">
+    <div
+      className={cn(
+        "flex flex-col items-center min-w-80 bg-accent-50",
+        className,
+      )}
+    >
       {/*TODO: заменить avatarUrl и name на данные с бэкенда*/}
       <div className="flex w-full bg-accent-100 min-h-[182px] pl-12">
         <Avatar
@@ -53,7 +63,11 @@ const PersonalInfo: FC = () => {
           className="rounded-2xl"
         />
         <Card conetent={getCommonCardDetails(data1)} className="rounded-2xl" />
-        <Card conetent={getReportsCardDetails(data2)} header="Direct reports" className="rounded-2xl" />
+        <Card
+          conetent={getReportsCardDetails(data2)}
+          header="Direct reports"
+          className="rounded-2xl"
+        />
       </div>
     </div>
   );

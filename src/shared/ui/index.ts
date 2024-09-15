@@ -7,3 +7,5 @@ export { default as Avatar } from "./Avatar/Avatar";
 export { default as List } from "./List/List";
 export { default as Select } from "./Select/Select";
 export { default as Tabs } from "./Tabs/Tabs";
+export { default as Divider } from "./Divider/Divider";
+export { default as Popover } from "./Popover/Popover";

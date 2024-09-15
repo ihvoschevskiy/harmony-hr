@@ -18,7 +18,7 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
       <body className={inter.className}>
-        <div className="max-w-screen-xl mx-auto">{children}</div>
+        <div className="max-w-screen-xxl mx-auto">{children}</div>
       </body>
     </html>
   );

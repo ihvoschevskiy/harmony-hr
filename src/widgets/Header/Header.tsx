@@ -6,15 +6,19 @@ import { HeaderControls } from "@widgets/HeaderControls";
 
 const Header: FC = () => {
   return (
-    <div className="flex items-center px-6 min-h-[86px]">
-      <Logo />
-      <Navigation />
-      <Input
-        prefixIcon={<SearchIcon size={16} />}
-        placeholder="Search"
-        className="ml-[60px] min-w-60"
-      />
-      <HeaderControls hasNotification className="ml-[60px]" />
+    <div className="flex gap-12 justify-between items-center px-6 min-h-[86px]">
+      <div className="flex gap-12 items-center self-stretch">
+        <Logo />
+        <Navigation className="s:hidden lg:flex" />
+      </div>
+      <div className="flex gap-4 justify-between">
+        <Input
+          prefixIcon={<SearchIcon size={16} />}
+          placeholder="Search"
+          className="min-w-60 max-w-80 s:hidden xl:inline-flex"
+        />
+        <HeaderControls hasNotification />
+      </div>
     </div>
   );
 };

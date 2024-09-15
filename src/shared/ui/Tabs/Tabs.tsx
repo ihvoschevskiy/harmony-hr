@@ -26,7 +26,7 @@ const Tabs: FC<TabsProps> = ({ value, options, onChange }) => {
         ref={tabsRef}
         className="overflow-hidden w-full p-0 h-auto text-black bg-accent-100"
       >
-        <div className="flex flex-1 max-h-14">
+        <div className="flex flex-wrap flex-1 max-h-14">
           {visibleOptions.map((item, index) => (
             <TabsTrigger
               key={index}
@@ -34,7 +34,7 @@ const Tabs: FC<TabsProps> = ({ value, options, onChange }) => {
               className={cn(
                 "flex-1 min-w-24 p-4",
                 value === item.value &&
-                "data-[state=active]:bg-background-50 data-[state=active]:rounded-t-lg",
+                "data-[state=active]:bg-background-50 data-[state=active]:rounded-b-none data-[state=active]:rounded-t-lg",
               )}
             >
               <div className="flex gap-2 items-center">

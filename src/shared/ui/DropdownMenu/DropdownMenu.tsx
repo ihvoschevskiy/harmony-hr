@@ -8,6 +8,7 @@ import {
 } from "@shared/shadcn/dropdown-menu";
 import { Option } from "@shared/types/option";
 import DropdownMenuItem from "./DropdownMenuItem";
+import { cn } from "@shared/utils";
 
 interface DropdownMenuProps {
   trigger: ReactNode;
@@ -24,10 +25,11 @@ const DropdownMenu: FC<DropdownMenuProps> = ({
   label,
   defaultIsOpen = false,
   onItemClick,
+  className,
 }) => {
   return (
     <ShadcnDropdownMenu defaultOpen={defaultIsOpen}>
-      <DropdownMenuTrigger asChild className="cursor-pointer">
+      <DropdownMenuTrigger asChild className={cn("cursor-pointer", className)}>
         {trigger}
       </DropdownMenuTrigger>
       <DropdownMenuContent>
