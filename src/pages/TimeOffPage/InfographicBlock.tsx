@@ -31,7 +31,7 @@ const statsData: Infographic[] = [
   },
 ];
 
-const StatisticBlock: FC = () => {
+const InfographicBlock: FC = () => {
   return (
     <div>
       <Section
@@ -50,4 +50,4 @@ const StatisticBlock: FC = () => {
   );
 };
 
-export default StatisticBlock;
+export default InfographicBlock;

@@ -24,7 +24,7 @@ const Section: FC<SectionProps> = ({
     <div className={cn("flex flex-col", className)}>
       <div className="flex justify-between items-center">
         <div
-          className={cn("flex items-center", size === "lg" ? "gap-2" : "gap-3")}
+          className={cn("flex items-center", size === "lg" ? "gap-3" : "gap-2")}
         >
           {Icon && <Icon size={16} className="text-accent-500" />}
           <h3

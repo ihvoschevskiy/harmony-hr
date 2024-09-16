@@ -32,7 +32,7 @@ const Tabs: FC<TabsProps> = ({ value, options, onChange }) => {
               key={index}
               value={item.value}
               className={cn(
-                "flex-1 min-w-24 p-4",
+                "flex-1 min-w-24 p-4 h-14",
                 value === item.value &&
                 "data-[state=active]:bg-background-50 data-[state=active]:rounded-b-none data-[state=active]:rounded-t-lg",
               )}
