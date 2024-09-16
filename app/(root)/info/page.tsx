@@ -11,7 +11,7 @@ const InfoPage: FC = () => {
   return (
     <main className="flex">
       <PersonalInfo className="s:hidden md:flex" />
-      <div className="flex-1 bg-accent-50">
+      <div className="flex-1 bg-accent-50 pb-10">
         <TopBar activeTab={activeTab} setActiveTab={setActiveTab}/>
         {activeTab === "time_off" && <TimeOffPage />}
       </div>

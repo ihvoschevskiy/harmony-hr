@@ -9,3 +9,4 @@ export { default as Select } from "./Select/Select";
 export { default as Tabs } from "./Tabs/Tabs";
 export { default as Divider } from "./Divider/Divider";
 export { default as Popover } from "./Popover/Popover";
+export { default as Table } from "./Table/Table";

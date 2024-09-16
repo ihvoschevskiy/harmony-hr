@@ -10,6 +10,7 @@ export const DATE_TIME_FORMATS = {
   ["MMM. D,YYYY"]: "MMM. D,YYYY",
   ["DD/MM-YYYY"]: "DD/MM-YYYY",
   ["MMM. DD"]: "MMM. DD",
+  ["DD/MM/YYYY"]: "DD/MM/YYYY",
 } as const;
 
 type DateTimeFormats = keyof typeof DATE_TIME_FORMATS;

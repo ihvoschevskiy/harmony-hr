@@ -44,8 +44,8 @@ const HistoryControls: FC<HistoryControlsProps> = ({
   className,
 }) => {
   return (
-    <div className={cn("flex justify-between", className)}>
-      <div className="flex gap-4">
+    <div className={cn("flex gap-4 flex-wrap justify-between", className)}>
+      <div className="flex gap-4 flex-wrap">
         <Select
           value={typeSelectValue}
           onChange={onChangeTypeSelectValue}
@@ -65,7 +65,6 @@ const HistoryControls: FC<HistoryControlsProps> = ({
         value={historySelectValue}
         onChange={onChangeHistorySelectValue}
         options={historyOptions}
-        isAllowClear
         className="min-w-44 border-accent-300 h-8 rounded-lg"
       />
     </div>

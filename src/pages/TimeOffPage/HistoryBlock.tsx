@@ -2,14 +2,22 @@
 
 import { HistoryIcon } from "@shared/ui/Icons";
 import { Section } from "@widgets/Section";
-import { FC, useState } from "react";
+import { FC, useMemo, useState } from "react";
 import HistoryControls from "./HistoryControls";
+import { Table } from "@shared/ui";
+import { tableData, tableHeader } from "./constants";
+import { HistoryTable, prepareTableData } from "./helers";
 
 const HisrotyBlock: FC = () => {
   const [typeSelectValue, onChangeTypeSelectValue] = useState("sick");
   const [limitSelectValue, onChangeLimitSelectValue] = useState("all");
   const [historySelectValue, onChangeHistorySelectValue] =
     useState("balance_history");
+
+  const formatedData = useMemo(
+    () => prepareTableData(tableData as unknown as HistoryTable),
+    [],
+  );
 
   return (
     <div className="mt-6">
@@ -28,6 +36,7 @@ const HisrotyBlock: FC = () => {
         onChangeHistorySelectValue={onChangeHistorySelectValue}
         className="mt-4"
       />
+      <Table header={tableHeader} data={formatedData} className="mt-4"/>
     </div>
   );
 };
