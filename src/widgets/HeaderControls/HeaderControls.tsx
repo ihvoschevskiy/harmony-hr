@@ -15,11 +15,15 @@ import { Input } from "@shared/ui";
 interface HeaderControlsProps {
   hasNotification?: boolean;
   className?: string;
+  searchValue: string;
+  setSearchValue: (value: string) => void;
 }
 
 const HeaderControls: FC<HeaderControlsProps> = ({
   hasNotification,
   className,
+  searchValue,
+  setSearchValue,
 }) => {
   const onItemClickHandler = useCallback((id: string | number) => {
     // TODO: Реализовать log out
@@ -42,6 +46,8 @@ const HeaderControls: FC<HeaderControlsProps> = ({
           className="xl:hidden"
         >
           <Input
+            value={searchValue}
+            onChange={setSearchValue}
             prefixIcon={<SearchIcon size={16} />}
             placeholder="Search"
             className="min-w-60 max-w-80"

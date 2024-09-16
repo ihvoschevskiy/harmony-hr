@@ -1,10 +1,10 @@
-"use client";
+'use client';
 
-import { FC  } from "react";
-
+import { LoginForm } from "@widgets/LoginForm";
+import { FC } from "react";
 
 const LoginPage: FC = () => {
-  return "LoginPage";
+  return <LoginForm/>;
 };
 
 export default LoginPage;
