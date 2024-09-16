@@ -12,6 +12,7 @@ type TimeOff = {
   description?: string;
 };
 
+//TODO: Придумать что-то с данными
 const timeOffData: TimeOff[] = [
   {
     Icon: PlusIcon,

@@ -16,7 +16,7 @@ const TopBar: FC<TopBarProps> = ({ activeTab, setActiveTab }) => {
 
   return (
     <div className="flex flex-col min-h-[182px] bg-accent-100 px-[16px] md:pl-0 md:pr-[48px]">
-      <div className="flex flex-1 items-center justify-between">
+      <div className="flex flex-1 flex-wrap gap-4 items-center justify-between">
         <h2 className="text-3xl font-semibold">Alexandra Kuibyshevskaya</h2>
         <div className="flex gap-4">
           <Select

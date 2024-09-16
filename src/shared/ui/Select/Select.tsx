@@ -9,13 +9,15 @@ import {
 } from "@shared/shadcn/select";
 import { SelectOption } from "./types";
 import { cn } from "@shared/utils";
+import { CrossIcon } from "../Icons";
 
 interface SelectProps {
   value: string;
   options: SelectOption[];
   placeholder?: string;
-  onChange: (value: string) => void;
   className?: string;
+  isAllowClear?: boolean;
+  onChange: (value: string) => void;
 }
 
 const Select: FC<SelectProps> = ({
@@ -23,12 +25,24 @@ const Select: FC<SelectProps> = ({
   options,
   placeholder,
   className,
+  isAllowClear = false,
   onChange,
 }) => {
   return (
     <ShadcnSelect value={value} onValueChange={onChange}>
-      <SelectTrigger className={cn("w-max gap-2 p-2", className)}>
-        <SelectValue placeholder={placeholder} />
+      <SelectTrigger
+        className={cn("w-max gap-2 p-2 [&_span]:flex-grow", className)}
+      >
+        <SelectValue placeholder={placeholder} className="flex-grow" />
+        {isAllowClear && (
+          <CrossIcon
+            size={16}
+            className="z-50"
+            onClick={() => {
+              onChange("");
+            }}
+          />
+        )}
       </SelectTrigger>
       <SelectContent>
         <SelectGroup>

@@ -1,6 +1,7 @@
 export { default as ArrowIcon } from "./ArrowIcon";
 export { default as BellIcon } from "./BellIcon";
 export { default as ClockIcon } from "./ClockIcon";
+export { default as CrossIcon } from "./CrossIcon";
 export { default as DocumentIcon } from "./DocumentIcon";
 export { default as FacebookIcon } from "./FacebookIcon";
 export { default as HashIcon } from "./HashIcon";
