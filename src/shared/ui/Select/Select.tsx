@@ -7,13 +7,13 @@ import {
   SelectValue,
   Select as ShadcnSelect,
 } from "@shared/shadcn/select";
-import { SelectOption } from "./types";
 import { cn } from "@shared/utils";
 import { CrossIcon } from "../Icons";
+import { Option } from "@shared/types/option";
 
 interface SelectProps {
   value: string;
-  options: SelectOption[];
+  options: Option[];
   placeholder?: string;
   className?: string;
   isAllowClear?: boolean;

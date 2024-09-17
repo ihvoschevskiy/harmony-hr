@@ -1,30 +1,8 @@
-import { IconWrapperProps } from "@shared/hocs";
-import { Divider } from "@shared/ui";
-import { ClockIcon, PigIcon, PlusIcon } from "@shared/ui/Icons";
+import { Divider, Section } from "@shared/ui";
+import { ClockIcon } from "@shared/ui/Icons";
 import { DATE_TIME_FORMATS, formatDate } from "@shared/utils";
-import { Section } from "@widgets/Section";
+import { timeOffData } from "@shared/mocks/upcoming";
 import { FC } from "react";
-
-type TimeOff = {
-  Icon: FC<IconWrapperProps>;
-  date: string;
-  details?: string;
-  description?: string;
-};
-
-//TODO: Придумать что-то с данными
-const timeOffData: TimeOff[] = [
-  {
-    Icon: PlusIcon,
-    date: "2020-01-27T00:00:00.000Z",
-    details: "1 day of Sick",
-  },
-  {
-    Icon: PigIcon,
-    date: "2020-07-04T00:00:00.000Z",
-    description: "Independence Day",
-  },
-];
 
 const UpcommingBlock: FC = () => {
   return (

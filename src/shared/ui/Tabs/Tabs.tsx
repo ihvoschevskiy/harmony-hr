@@ -1,5 +1,3 @@
-"use client";
-
 import { FC, useRef } from "react";
 import { Tabs as ShadcnTabs, TabsList, TabsTrigger } from "@shared/shadcn/tabs";
 import { useTabs } from "./useTabs";

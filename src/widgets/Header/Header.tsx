@@ -1,5 +1,3 @@
-"use client";
-
 import { FC, useState } from "react";
 import { Input, Logo } from "@shared/ui";
 import { Navigation } from "@widgets/Navigation";
@@ -23,7 +21,11 @@ const Header: FC = () => {
           placeholder="Search"
           className="min-w-60 max-w-80 s:hidden xl:inline-flex"
         />
-        <HeaderControls hasNotification searchValue={value} setSearchValue={setValue} />
+        <HeaderControls
+          hasNotification
+          searchValue={value}
+          setSearchValue={setValue}
+        />
       </div>
     </div>
   );

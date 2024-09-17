@@ -1,7 +1,7 @@
-"use client";
 import { Select, Tabs } from "@shared/ui";
 import { FC, useState } from "react";
 import { requestOptions, settingsOptions, tabOptions } from "./constants";
+import { useUserStore } from "@shared/store/user/store";
 
 interface TopBarProps {
   activeTab: string;
@@ -11,13 +11,12 @@ interface TopBarProps {
 const TopBar: FC<TopBarProps> = ({ activeTab, setActiveTab }) => {
   const [requestSelect, setRequestSelect] = useState("request_a_change");
   const [settingsSelect, setSettingsSelect] = useState("settings");
-
-  //TODO: Заменить имя на данные из запроса
+  const user = useUserStore(({ user }) => user);
 
   return (
     <div className="flex flex-col min-h-[182px] bg-accent-100 px-[16px] md:pl-0 md:pr-[48px] pt-10">
       <div className="flex flex-1 flex-wrap gap-4 items-center justify-between">
-        <h2 className="text-3xl font-semibold">Alexandra Kuibyshevskaya</h2>
+        <h2 className="text-3xl font-semibold">{user?.name}</h2>
         <div className="flex gap-4">
           <Select
             value={requestSelect}

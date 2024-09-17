@@ -1,5 +1,5 @@
 import { Inter } from "next/font/google";
-import "@app/globals.css";
+import "./globals.css";
 import { cn } from "@shared/utils";
 import { ApolloWrapper } from "@shared/utils/apolo/wrapper";
 import { Metadata } from "next";

@@ -31,7 +31,9 @@ const Card: FC<CardProps> = ({
           {description && <CardDescription>{description}</CardDescription>}
         </CardHeader>
       )}
-      <CardContent className={cn("p-0", header && "pt-4")}>{conetent}</CardContent>
+      <CardContent className={cn("p-0", header && "pt-4")}>
+        {conetent}
+      </CardContent>
       {footer && <CardFooter>{footer}</CardFooter>}
     </ShadcnCard>
   );

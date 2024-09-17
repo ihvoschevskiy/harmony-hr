@@ -16,7 +16,11 @@ const Divider: FC<DividerProps> = ({
   return (
     <Separator
       orientation={orientation}
-      className={cn("h-[2px]", type === "circle" && "h-2 w-2 rounded-full", className)}
+      className={cn(
+        "h-[2px]",
+        type === "circle" && "h-2 w-2 rounded-full",
+        className,
+      )}
     />
   );
 };

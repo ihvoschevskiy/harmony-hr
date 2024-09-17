@@ -5,7 +5,7 @@ import { cn } from "@shared/utils";
 
 interface ButtonProps
   extends ButtonHTMLAttributes<HTMLButtonElement>,
-  VariantProps<typeof buttonVariants> {
+    VariantProps<typeof buttonVariants> {
   asChild?: boolean;
   withSign?: boolean;
   prefixIcon?: ReactNode;
@@ -35,7 +35,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         asChild={asChild}
         className={cn(
           withSign &&
-          "relative after:absolute after:content-[''] after:top-0 after:right-0 after:w-2 after:h-2 after:rounded-full after:bg-red-500",
+            "relative after:absolute after:content-[''] after:top-0 after:right-0 after:w-2 after:h-2 after:rounded-full after:bg-red-500",
           className,
         )}
         ref={ref}

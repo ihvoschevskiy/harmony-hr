@@ -1,7 +1,7 @@
-import { Option } from "@shared/types/option";
 import { Select } from "@shared/ui";
 import { cn } from "@shared/utils";
 import { FC } from "react";
+import { historyOptions, limitOptions, typeOptions } from "./constants";
 
 interface HistoryControlsProps {
   typeSelectValue: string;
@@ -12,27 +12,6 @@ interface HistoryControlsProps {
   onChangeHistorySelectValue: (value: string) => void;
   className?: string;
 }
-
-const typeOptions: Option[] = [
-  {
-    value: "sick",
-    label: "Sick",
-  },
-];
-
-const limitOptions: Option[] = [
-  {
-    value: "all",
-    label: "All",
-  },
-];
-
-const historyOptions: Option[] = [
-  {
-    value: "balance_history",
-    label: "Balance History",
-  },
-];
 
 const HistoryControls: FC<HistoryControlsProps> = ({
   typeSelectValue,

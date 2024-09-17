@@ -2,6 +2,7 @@ import type { FormikConfig, FormikValues } from "formik";
 import { Formik } from "formik";
 import React, { useMemo, useRef } from "react";
 import { debounce } from "lodash-es";
+import { useMemoOnce } from "@shared/hooks/useMemoOnce";
 
 export const emptyFunction = () => null;
 
@@ -26,8 +27,7 @@ function AppFormik<T extends FormikValues>({
   className,
   ...props
 }: AppFormikProps<T>): React.ReactElement {
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  const initData = useMemo(() => initialValues, []);
+  const initData = useMemoOnce(() => initialValues);
   const formValueRef = useRef<T>(initData);
   const isValidRef = useRef<boolean | null>(null);
 

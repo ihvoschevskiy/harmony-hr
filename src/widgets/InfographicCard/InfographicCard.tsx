@@ -1,7 +1,7 @@
 import { Card } from "@shared/ui";
 import { FC, useMemo } from "react";
 import { InfographicType } from "./types";
-import { cardDict } from "./constants";
+import { cardDict } from "@shared/mocks/infographic";
 
 interface InfographicCardProps {
   type: InfographicType;

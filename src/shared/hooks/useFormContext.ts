@@ -1,19 +1,19 @@
-import { FormikTouched, FormikValues, useFormikContext } from 'formik';
-import { FormikContextType, FormikErrors } from 'formik/dist/types';
-import _ from 'lodash';
-import { useCallback } from 'react';
+import { FormikTouched, FormikValues, useFormikContext } from "formik";
+import { FormikContextType, FormikErrors } from "formik/dist/types";
+import { get } from "lodash";
+import { useCallback } from "react";
 
 const getErrorMessage = <T extends FormikValues>(
   errors: FormikErrors<T>,
   touched: FormikTouched<T>,
   name: string,
 ): string | null => {
-  const errorMessage = _.get(errors, name) as string | string[];
-  const isTouched = _.get(touched, name);
+  const errorMessage = get(errors, name) as string | string[];
+  const isTouched = get(touched, name);
   const shouldShowError = errorMessage && isTouched;
   return shouldShowError
     ? Array.isArray(errorMessage)
-      ? errorMessage.join(', ') || null
+      ? errorMessage.join(", ") || null
       : errorMessage
     : null;
 };
@@ -46,14 +46,14 @@ export const useFormContext = <Value extends FormikValues, Name extends string>(
 
   const setControlTouched = useCallback(
     () => {
-      if (_.get(formikContext.touched, name)) return;
+      if (get(formikContext.touched, name)) return;
       formikContext.setFieldTouched(name, true);
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [name, formikContext.touched],
   );
 
-  const controlValue = _.get(formikContext.values, name);
+  const controlValue = get(formikContext.values, name);
 
   return {
     ...formikContext,
@@ -63,4 +63,3 @@ export const useFormContext = <Value extends FormikValues, Name extends string>(
     controlValue,
   };
 };
-

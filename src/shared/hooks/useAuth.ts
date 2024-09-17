@@ -1,8 +1,7 @@
 import { useMutation, useQuery } from "@apollo/client";
-import { FETCH_USER } from "@shared/features/fetchUser/request";
-import { REFRESH_TOKEN } from "@shared/features/refreshToken";
 import { useUserStore } from "@shared/store/user/store";
 import { User } from "@shared/types/user";
+import { FETCH_USER, REFRESH_TOKEN } from "@shared/utils/apolo/api";
 import SessionService from "@shared/utils/session";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
@@ -49,10 +48,10 @@ export const useAuth = (user: User | null) => {
     const { access_token, refresh_token } = refreshTokenData.refreshToken;
     SessionService.login(access_token, refresh_token);
     router.refresh();
-  }, [refreshTokenData, router, setUser]);
+  }, [refreshTokenData, router]);
 
   useEffect(() => {
-    if (userData) setUser(userData);
+    if (userData) setUser(userData.myProfile);
     router.push("/info");
   }, [userData, setUser, router]);
 

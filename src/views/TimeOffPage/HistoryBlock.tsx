@@ -1,12 +1,12 @@
 "use client";
 
 import { HistoryIcon } from "@shared/ui/Icons";
-import { Section } from "@widgets/Section";
-import { FC, useMemo, useState } from "react";
+import { FC, useState } from "react";
 import HistoryControls from "./HistoryControls";
-import { Table } from "@shared/ui";
-import { tableData, tableHeader } from "./constants";
-import { HistoryTable, prepareTableData } from "./helers";
+import { Section, Table } from "@shared/ui";
+import { HistoryTable, prepareTableData } from "./helpers";
+import { tableData, tableHeader } from "@shared/mocks/history";
+import { useMemoOnce } from "@shared/hooks/useMemoOnce";
 
 const HisrotyBlock: FC = () => {
   const [typeSelectValue, onChangeTypeSelectValue] = useState("sick");
@@ -14,9 +14,8 @@ const HisrotyBlock: FC = () => {
   const [historySelectValue, onChangeHistorySelectValue] =
     useState("balance_history");
 
-  const formatedData = useMemo(
-    () => prepareTableData(tableData as unknown as HistoryTable),
-    [],
+  const formatedData = useMemoOnce(() =>
+    prepareTableData(tableData as unknown as HistoryTable),
   );
 
   return (
@@ -36,7 +35,7 @@ const HisrotyBlock: FC = () => {
         onChangeHistorySelectValue={onChangeHistorySelectValue}
         className="mt-4"
       />
-      <Table header={tableHeader} data={formatedData} className="mt-4"/>
+      <Table header={tableHeader} data={formatedData} className="mt-4" />
     </div>
   );
 };

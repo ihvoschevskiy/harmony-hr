@@ -1,5 +1,3 @@
-"use client";
-
 import { Avatar, Button, DropdownMenu, Popover } from "@shared/ui";
 import {
   BellIcon,
@@ -28,6 +26,7 @@ const HeaderControls: FC<HeaderControlsProps> = ({
   searchValue,
   setSearchValue,
 }) => {
+  const user = useUserStore(({ user }) => user);
   const setUser = useUserStore(({ setUser }) => setUser);
   const router = useRouter();
   const onItemClickHandler = useCallback(
@@ -75,15 +74,11 @@ const HeaderControls: FC<HeaderControlsProps> = ({
           <BellIcon size={24} />
         </Button>
       </div>
-      {/*TODO: заменить avatarUrl и name на данные с бэкенда*/}
       <DropdownMenu
         options={userMenu}
         trigger={
           <div>
-            <Avatar
-              avatarUrl="/images/avatar-sm.png"
-              name="Alexandra Kuibyshevskaya"
-            />
+            <Avatar avatarUrl={user?.avatar || ""} name={user?.name || ""} />
           </div>
         }
         onItemClick={onItemClickHandler}
