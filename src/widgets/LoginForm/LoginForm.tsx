@@ -15,20 +15,18 @@ import { initialValues, loginFormValidationSchema } from "./contants";
 import { LoginForm as TLoginForm } from "./types";
 import { useMutation } from "@apollo/client";
 import SessionService from "@shared/utils/session";
-import { useUserStore } from "@shared/store/user/store";
 import { useRouter } from "next/navigation";
 import { LOGIN } from "./api";
 
 const LoginForm: FC = () => {
   const [login, { data, loading }] = useMutation(LOGIN);
-  const fetchUser = useUserStore(({ fetchUser }) => fetchUser);
   const router = useRouter();
 
   useEffect(() => {
     if (data) {
       const { access_token, refresh_token } = data.login;
       SessionService.login(access_token, refresh_token);
-      fetchUser(router.push);
+      router.push('/')
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);

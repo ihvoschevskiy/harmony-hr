@@ -11,6 +11,9 @@ import { cn } from "@shared/utils";
 import { FC, useCallback } from "react";
 import { userMenu } from "./constants";
 import { Input } from "@shared/ui";
+import { useUserStore } from "@shared/store/user/store";
+import SessionService from "@shared/utils/session";
+import { useRouter } from "next/navigation";
 
 interface HeaderControlsProps {
   hasNotification?: boolean;
@@ -25,14 +28,18 @@ const HeaderControls: FC<HeaderControlsProps> = ({
   searchValue,
   setSearchValue,
 }) => {
-  const onItemClickHandler = useCallback((id: string | number) => {
-    // TODO: Реализовать log out
-    if (id === "logout") {
-      // navigate(AppRoutes.login);
-      // SessionService.logout();
-      // dispatch(uiActions.setUser(null));
-    }
-  }, []);
+  const setUser = useUserStore(({ setUser }) => setUser);
+  const router = useRouter();
+  const onItemClickHandler = useCallback(
+    (id: string | number) => {
+      if (id === "logout") {
+        router.push("/login");
+        SessionService.logout();
+        setUser(null);
+      }
+    },
+    [router, setUser],
+  );
 
   return (
     <div className={cn("flex gap-6 text-accent-500", className)}>
